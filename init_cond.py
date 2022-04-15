@@ -17,9 +17,16 @@ def initcond1(G, comm):
     kx, ky, kz = get_kx_ky_kz(comm)
     #print(comm.Get_rank(), x)
 
+    G.comm = comm
     x_mesh, y_mesh, z_mesh, kx_mesh, ky_mesh, kz_mesh, ksqr = set_meshrid(x, y, z, kx, ky, kz)
+    G.x = x
+    G.y = y
+    G.z = z
     G.ksqr = ksqr
-
+    G.kx_mesh = kx_mesh
+    G.ky_mesh = ky_mesh
+    G.kz_mesh = kz_mesh
+    
     # G.psi = (1/np.pi**(1/4))*np.exp(-(my_fft.z_mesh**2/2+my_fft.y_mesh**2+my_fft.x_mesh**2/2))+0j  #1D initial condition
     #x_mesh, y_mesh, z_mesh, kx_mesh, ky_mesh, kz_mesh, ksqr = my_fft.set_meshrid(rank, nprocs, my_fft.y, my_fft.z)
    # G.psi = (1/(np.pi)**(1/2))*np.exp(-(my_fft.z_mesh**2/2+my_fft.y_mesh**2+my_fft.x_mesh**2/2))+0j    #2D initial condition

@@ -26,6 +26,3 @@ volume=Lx*Ly*Lz
 tMax=10 # time 
 dt=0.001 
 Ngt=int(tMax/dt)
-
-N = np.array([Nx, Ny, Nz], dtype=int)
-fft = PFFT(comm, N, axes=(0, 1, 2), dtype=np.complex128, grid=(-1,))
